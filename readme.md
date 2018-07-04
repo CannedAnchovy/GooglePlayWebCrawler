@@ -2,7 +2,7 @@ Google Play Web Crawler
 ===
 
 ## Description
-A web crawler that crawls the app's name, url, and email of google play store.
+A web crawler that crawls the app's name, url, and email from google play store.
 It is based on node.js and selenium.
 
 ## Installation
@@ -27,4 +27,4 @@ You can look up the file 'keyword-example' for example.
 
 ## Output
 If the crawler executes successfully, the result will be stored in [keyword]_result.csv.
-There will be three columns in this file, which is app's name, url, and email.
+There will be three columns in this file, which are app's name, url, and email.
