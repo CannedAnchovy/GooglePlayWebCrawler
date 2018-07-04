@@ -1,5 +1,10 @@
 const fs = require('fs');
 
+exports.open = openPromise;
+exports.readFile = readFilePromise;
+exports.write = writePromise;
+exports.close = closePromise;
+
 /**
  * Wrap the fs.open into a promise version.
  * @param {string} path The file path.
@@ -14,6 +19,21 @@ function openPromise(path, flag) {
     });
   });
 }
+
+/**
+ * Wrap the fs.readFile into a promise version.
+ * @param {string} path The file path.
+ * @return {promise} A promise that resolve the data and reject the error.
+ */
+function readFilePromise(path) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(path, 'utf8', (err, data) => {
+      if (err) reject(err);
+      resolve(data);
+    });
+  });
+}
+
 
 /**
  * Wrap the fs.write into a promise version.
@@ -43,7 +63,3 @@ function closePromise(fd) {
     });
   });
 }
-
-exports.open = openPromise;
-exports.write = writePromise;
-exports.close = closePromise;
